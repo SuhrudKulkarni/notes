@@ -1,0 +1,21 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+.vscode/
+.idea/
+*.swp
+*~
+
+# Python (in case you add notebooks/code later)
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Build artifacts (if you ever add a static-site build later)
+_site/
+.jekyll-cache/
+.jekyll-metadata
