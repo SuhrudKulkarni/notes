@@ -20,6 +20,8 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 
 - **[Hand-rolled multi-head self-attention](code/handrolled_multihead_attention.py).** Causal MHA with fused QKV, raw `nn.Parameter` matrices, and einops + einsum.
 
+- **[Two implementations of RoPE](code/handrolled_rope.py).** Even/odd slicing and a block-diagonal rotation matrix.
+
 ### In flight
 
 - **3 Kernels in modern attention.** $QK^\top$ is kernel-y, asymmetric and so not Mercer-PSD. If I squint, attention looks kernel-shaped. Performer applies random Fourier features to the softmax kernel for sub-quadratic attention. RoPE applies Bochner's spectral decomposition to the position kernel.
