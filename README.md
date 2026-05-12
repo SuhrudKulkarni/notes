@@ -24,6 +24,8 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 
 - **[Two implementations of RoPE](code/handrolled_rope.py).** Even/odd slicing and a block-diagonal rotation matrix.
 
+- **[Reward hacking: optimizer gaming a misspecified objective](code/tool_use_objective_gaming.py).** Toy REINFORCE with two tasks and an `add()` tool. A bonus allows the optimizer to game the obj and use the tool unnecessarily.
+
 ### In flight
 
 - **3 Kernels in modern attention.** $QK^\top$ is kernel-y, asymmetric and so not Mercer-PSD. If I squint, attention looks kernel-shaped. Performer applies random Fourier features to the softmax kernel for sub-quadratic attention. RoPE applies Bochner's spectral decomposition to the position kernel.
