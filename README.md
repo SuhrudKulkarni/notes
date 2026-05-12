@@ -12,6 +12,8 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 
 - **[2 Fisher Information again and again](posts/2-fisher-information.md).** The same matrix appears as a preconditioner in natural gradient, a constraint in TRPO, a diagonal approximation in Adam, an ingredient in NES, and a lower bound in Cramér-Rao.
 
+- **[4 Goal programming: hyperparameters as economic coefficients](posts/4-goal-programming.md).** Lagrangian multipliers as shadow prices, prices we measure, dials we tune, constraints we cannot violate, and some questions about RLHF penalty terms.
+
 - **[7 Personalization and RLHF](posts/7-lambdamart-dpo.md).** Parallels between RankNet/LambdaMART and DPO, both built on Bradley-Terry.
 
 - **[8 Robustness and clipping](posts/8-clipping.md).** A guardrail against bad inputs can go on the input itself, with robust estimators like winsorization, MAD, or MCD, or on the function output, with gradient clipping, PPO ratio clipping, or per-trade PnL clipping.
@@ -25,8 +27,6 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 ### In flight
 
 - **3 Kernels in modern attention.** $QK^\top$ is kernel-y, asymmetric and so not Mercer-PSD. If I squint, attention looks kernel-shaped. Performer applies random Fourier features to the softmax kernel for sub-quadratic attention. RoPE applies Bochner's spectral decomposition to the position kernel.
-
-- **4 Goal programming: hyperparameters as economic coefficients.** ML loss functions combine weighted penalty terms, tuned in validation. Operations Research attacks this head on with goal programming. Thoughts on prices (exchange rates between objectives), dials (tuned because no measurement is available), and constraints (things the optimizer should never violate).
 
 - **5 Double or nothing: Duality** Super egg drop, SVMs, DualDICE. Three settings where I see duality. The dual simplifies egg drop, opens computational access in SVMs, and is nicer math but computationally unloved in DICE.
 
