@@ -10,9 +10,17 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 
 - **[1 Variance reduction and GAE](posts/1-variance-reduction.md).** The same trick shows up in Monte Carlo (control variates), trading (minimum-variance hedge), quant finance (excess return), and policy-gradient RL (the advantage function). A walk through the unified formula and modern policy gradient methods like GAE and GRPO.
 
-### In flight
+- **[2 Fisher Information again and again](posts/2-fisher-information.md).** The same matrix appears as a preconditioner in natural gradient, a constraint in TRPO, a diagonal approximation in Adam, an ingredient in NES, and a lower bound in Cramér-Rao.
 
-- **2 Fisher Information again and again.** Cramér-Rao, natural gradient, evolution strategies, TRPO, KL second-order expansion, Adam-as-loose-natural-gradient. This matrix shows up everywhere. Plus first vs. second order methods.
+- **[7 Personalization and RLHF](posts/7-lambdamart-dpo.md).** Parallels between RankNet/LambdaMART and DPO, both built on Bradley-Terry.
+
+- **[8 Robustness and clipping](posts/8-clipping.md).** A guardrail against bad inputs can go on the input itself, with robust estimators like winsorization, MAD, or MCD, or on the function output, with gradient clipping, PPO ratio clipping, or per-trade PnL clipping.
+
+- **[9 Binary search and bisection](posts/9-binary-search.md).** A one-stop-shop for binary search. The same template solves integer search, bisection root-finding, bond yield-to-maturity, and inverse CDF sampling.
+
+- **[Hand-rolled multi-head self-attention](code/handrolled_multihead_attention.py).** Causal MHA with fused QKV, raw `nn.Parameter` matrices, and einops + einsum.
+
+### In flight
 
 - **3 Kernels in modern attention.** $QK^\top$ is kernel-y, asymmetric and so not Mercer-PSD. If I squint, attention looks kernel-shaped. Performer applies random Fourier features to the softmax kernel for sub-quadratic attention. RoPE applies Bochner's spectral decomposition to the position kernel.
 
@@ -22,12 +30,6 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 
 - **6 From A/B testing to ML eval.** The standard interview question (A/B test, CTR 95% vs 97%, is it significant?) opens onto the Wald-Score-LR trinity, Neyman-Pearson, Wilks' theorem. ML benchmarks have prompt clusters, within-subjects comparisons, contamination, multi-checkpoint reporting. So what test do we use? Thoughts on cluster-robust standard errors, panel methods, multiple-comparison corrections.
 
-- **7 LambdaMART and DPO.** Both convert preference signals into pointwise gradients. RankNet's pairwise model is the same Bradley-Terry model that DPO uses. RankNet to LambdaRank to LambdaMART echoes RLHF to DPO in personalization.
-
-- **8 Clipping as guardrails.** Ratio clipping in PPO, pnl clipping in backtests, gradient clipping in deep learning. When the inputs are messy, we contain the reaction.
-
-- **9 Binary search is just bisection.** Binary search done right, with edge cases handled. The same idea shows up in bisection root-finding, price-yield in fixed income, and inverse CDF sampling.
-
 ---
 
-*Suhrud Kulkarni — last updated 2026-05-10*
+*Suhrud Kulkarni — last updated 2026-05-11*
