@@ -18,7 +18,7 @@ Notes on RL, optimization, and numerical methods. Quant working through modern A
 
 - **[8 Robustness and clipping](posts/8-clipping.md).** A guardrail against bad inputs can go on the input itself, with robust estimators like winsorization, MAD, or MCD, or on the function output, with gradient clipping, PPO ratio clipping, or per-trade PnL clipping.
 
-- **[9 Binary search and bisection](posts/9-binary-search.md).** A one-stop-shop for binary search. The same template solves integer search, bisection root-finding, bond yield-to-maturity, and inverse CDF sampling.
+- **[9 Binary search and bisection](posts/9-binary-search.md).** A one-stop-shop C++23 template that solves integer search, bisection root-finding, bond yield-to-maturity, and inverse CDF sampling.
 
 - **[Hand-rolled multi-head self-attention](code/handrolled_multihead_attention.py).** Causal MHA with fused QKV, raw `nn.Parameter` matrices, and einops + einsum.
 
