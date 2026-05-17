@@ -20,7 +20,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 
 class TaskType(IntEnum):
@@ -66,8 +65,8 @@ class Policy(nn.Module):
         super().__init__()
         self.logits = nn.Parameter(torch.zeros(num_tasks, num_actions))
 
-    def forward(self, task_idx: int) -> torch.Tensor:
-        return self.logits[task_idx]
+    def forward(self, task_idx: int) -> torch.distributions.Categorical:
+        return torch.distributions.Categorical(logits=self.logits[task_idx])
 
 
 @dataclass
@@ -124,7 +123,7 @@ def train(
         optimizer.zero_grad()
 
         task = sample_task()
-        dist = torch.distributions.Categorical(logits=policy(task.task_type))
+        dist = policy(task.task_type)
         action_idx_tensor = dist.sample()
         action = ACTIONS[action_idx_tensor.item()]
 
@@ -207,7 +206,7 @@ def main():
     ]:
         print(f"\n[{label}]")
         for task_type in TaskType:
-            probs = F.softmax(artifact.policy(task_type).detach(), dim=-1).numpy()
+            probs = artifact.policy(task_type).probs.detach().numpy()
             print(f" {task_type.name}")
             for action, p in zip(ACTIONS, probs):
                 print(f"  {action}: {p:.3f}")
