@@ -1,6 +1,6 @@
 # notes
 
-Notes on RL, optimization, numerical methods, and applied techniques. Quant working through modern AI research. Some posts are connections to adjacent fields I've worked in: quant, hypothesis testing, operations research, personalization. These are working thoughts.
+Working notes from a quant on RL, optimization, numerical methods, and applied techniques. Some posts are connections to adjacent fields I've worked in: hypothesis testing, operations research, personalization.
 
 ---
 
